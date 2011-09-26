@@ -3,7 +3,7 @@
 
 ## About
 
-detect.js retrieves information about the user's browser using navigator.userAgent and navigator.platform. As these attributes can be changed easily, detect.js should be used to alter the behavior of a website for a specific platform. See feature detection.
+detect.js retrieves information about the user's browser using navigator.userAgent and navigator.platform. As these attributes can be changed easily, detect.js should NOT be used to alter the behavior of a website for a specific platform. See feature detection.
 ## Usage
 
 Add detect.js to your page:
