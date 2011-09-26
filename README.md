@@ -2,7 +2,7 @@ detect.js
 =======================
 browser & os detection
 
-# Usage
+## Usage
 
 Add detect.js to your page:
 
@@ -15,7 +15,7 @@ Retrieve the browser, version, & os:
     console.log( ui.version );
     console.log( ui.os );
 
-# Browsers Detected
+## Browsers Detected
     
     Internet Explorer 6, 7, 8, 9, Mobile
     Firefox 3.6, 4, 5, 6, 7, Mobile
@@ -23,7 +23,7 @@ Retrieve the browser, version, & os:
     Opera 9, 10, 11, Mini, Mobile 
     Chrome
 
-# Operating Systems Detected
+## Operating Systems Detected
 
     Mac OS X
     Windows
