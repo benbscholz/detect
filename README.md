@@ -1,6 +1,5 @@
-detect.js
-=======================
-browser & os detection
+#detect.js
+###Detect the browser & os as a readable string.
 
 ## Usage
 
@@ -10,12 +9,21 @@ Add detect.js to your page:
 
 Retrieve the browser, version, & os:
     
-    var ui = window.ui;
-    console.log( ui.browser );
-    console.log( ui.version );
-    console.log( ui.os );
+    console.log( window.ui.browser );
+    console.log( window.ui.version );
+    console.log( window.ui.os );
+    
+## window.ui
 
-## Browsers Detected
+detect.js adds a 'ui' (short for user information) object to the window.
+
+    window.ui = {
+        browser : 'Firefox',
+        version : '6.0.2',
+        os : 'Mac OS X 10.7'
+    }
+
+## Which browsers are supported?
     
     Internet Explorer 6, 7, 8, 9, Mobile
     Firefox 3.6, 4, 5, 6, 7, Mobile
@@ -23,7 +31,7 @@ Retrieve the browser, version, & os:
     Opera 9, 10, 11, Mini, Mobile 
     Chrome
 
-## Operating Systems Detected
+## Which operating systems can be detected?
 
     Mac OS X
     Windows
