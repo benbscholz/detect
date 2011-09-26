@@ -1,5 +1,5 @@
 #detect.js
-###Detect the browser & os as a readable string.
+###provides the browser & os as a readable string.
 
 ## Usage
 
