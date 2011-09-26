@@ -1,6 +1,9 @@
 #detect.js
 ###provides the browser & os as a readable string.
 
+## About
+
+detect.js retrieves information about the user's browser using navigator.userAgent and navigator.platform. As these attributes can be changed easily, detect.js should be used to alter the behavior of a website for a specific platform. See feature detection.
 ## Usage
 
 Add detect.js to your page:
