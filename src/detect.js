@@ -4,8 +4,10 @@
 ;(function (window) {
 
     var browser,
-        os,
         version,
+        os,
+        osversion,
+        bit = 0,
         ua = window.navigator.userAgent,
         platform = window.navigator.platform;
 
@@ -32,7 +34,7 @@
             browser += ' Mini';
         } else if ( /Mobile/.test(ua) ) {
             browser += ' Mobile';
-        } 
+        }
         
     } else if ( /Android/.test(ua) ) {
         
@@ -66,22 +68,20 @@
          if (version) {
              version = version[0].split('/')[1];
          } else {
-             version = /Opera\/[\.\d]+/.exec(ua)[0].split('/')[1]
+             version = /Opera\/[\.\d]+/.exec(ua)[0].split('/')[1];
          }
          
     }
     
     if ( platform === 'MacIntel' || platform === 'MacPPC' ) {
-        
-        os = 'Mac OS X ' + /10[\.\_\d]+/.exec(ua)[0];
-        if ( /[\_]/.test(os) ) {
-            os = os.split('_').join('.');
+        os = 'Mac OS X';
+        osversion = /10[\.\_\d]+/.exec(ua)[0];
+        if ( /[\_]/.test(osversion) ) {
+            osversion = osversion.split('_').join('.');
         }
-        
-    } else if ( platform === 'Win32' ) {
-        os = 'Windows 32 bit';
-    } else if ( platform == 'Win64' ) {
-        os = 'Windows 64 bit';
+    } else if ( platform === 'Win32' || platform == 'Win64' ) {
+        os = 'Windows';
+        bit = platform.replace(/[^0-9]+/,'');
     } else if ( !os && /Linux/.test(platform) ) {
         os = 'Linux';
     } else if ( !os && /Windows/.test(ua) ) {
@@ -91,10 +91,8 @@
     window.ui = {
         browser : browser,
         version : version,
-        os : os
-    };        
+        os : os,
+        osversion : osversion,
+        bit: bit
+    };
 }(this));
-
-
-
-
