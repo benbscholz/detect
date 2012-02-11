@@ -5,9 +5,10 @@
 
     var browser,
         version,
+        mobile,
         os,
         osversion,
-        bit = 0,
+        bit,
         ua = window.navigator.userAgent,
         platform = window.navigator.platform;
 
@@ -16,7 +17,7 @@
         browser = 'Internet Explorer';
         
         if ( /IEMobile/.test(ua) ) {
-            browser += ' Mobile';
+            mobile = 1;
         }
         
         version = /MSIE \d+[.]\d+/.exec(ua)[0].split(' ')[1];
@@ -30,16 +31,14 @@
         
         browser = 'Opera';
         
-        if ( /mini/.test(ua) ) {
-            browser += ' Mini';
-        } else if ( /Mobile/.test(ua) ) {
-            browser += ' Mobile';
+        if ( /mini/.test(ua) || /Mobile/.test(ua) ) {
+            mobile = 1;
         }
         
     } else if ( /Android/.test(ua) ) {
         
         browser = 'Android Webkit Browser';
-        mobile = true;
+        mobile = 1;
         os = /Android\s[\.\d]+/.exec(ua);
         
     } else if ( /Firefox/.test(ua) ) {
@@ -47,7 +46,7 @@
         browser = 'Firefox';
         
         if ( /Fennec/.test(ua) ) {
-            browser += ' Mobile';
+            mobile = 1;
         }
         version = /Firefox\/[\.\d]+/.exec(ua)[0].split('/')[1];
         
@@ -57,6 +56,7 @@
         
         if ( (/iPhone/.test(ua)) || (/iPad/.test(ua)) || (/iPod/.test(ua)) ) {
             os = 'iOS';
+            mobile = 1;
         }
         
     }
@@ -91,6 +91,7 @@
     window.ui = {
         browser : browser,
         version : version,
+        mobile : mobile,
         os : os,
         osversion : osversion,
         bit: bit
