@@ -39,7 +39,7 @@
         
         browser = 'Android Webkit Browser';
         mobile = 1;
-        os = /Android\s[\.\d]+/.exec(ua);
+        os = /Android\s[\.\d]+/.exec(ua)[0];
         
     } else if ( /Firefox/.test(ua) ) {
         
@@ -82,6 +82,8 @@
     } else if ( platform === 'Win32' || platform == 'Win64' ) {
         os = 'Windows';
         bit = platform.replace(/[^0-9]+/,'');
+    } else if ( !os && /Android/.test(ua) ) {
+        os = 'Android';
     } else if ( !os && /Linux/.test(platform) ) {
         os = 'Linux';
     } else if ( !os && /Windows/.test(ua) ) {
