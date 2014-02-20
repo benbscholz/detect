@@ -23,7 +23,11 @@
         version = /MSIE \d+[.]\d+/.exec(ua)[0].split(' ')[1];
         
     } else if ( /Chrome/.test(ua) ) {
-        
+        // Platform override for Chromebooks
+        if ( /CrOS/.test(ua) ) {
+            platform = 'CrOS';
+        }
+
         browser = 'Chrome';
         version = /Chrome\/[\d\.]+/.exec(ua)[0].split('/')[1];
         
@@ -79,6 +83,8 @@
         if ( /[\_]/.test(osversion) ) {
             osversion = osversion.split('_').join('.');
         }
+    } else if ( platform === 'CrOS' ) {
+        os = 'ChromeOS';
     } else if ( platform === 'Win32' || platform == 'Win64' ) {
         os = 'Windows';
         bit = platform.replace(/[^0-9]+/,'');
